@@ -1,0 +1,43 @@
+{
+  "version": 2,
+  "language": "fr",
+  "entry_point": "coordinator",
+  "deployment": "documented-api-import-and-backend-orchestration",
+  "agents": [
+    {
+      "id": "academic",
+      "dust_name": "Lecture-Academique",
+      "instructions": "academic/instructions.md",
+      "app_name": "Lecture-Academique-App",
+      "app_contract": "academic/app-contract.md"
+    },
+    {
+      "id": "support",
+      "dust_name": "Lecture-Soutien",
+      "instructions": "support/instructions.md",
+      "app_name": "Lecture-Soutien-App",
+      "app_contract": "support/app-contract.md"
+    },
+    {
+      "id": "visuals",
+      "dust_name": "Lecture-Images",
+      "instructions": "visuals/instructions.md",
+      "app_name": "Lecture-Images-App",
+      "app_contract": "visuals/app-contract.md"
+    },
+    {
+      "id": "voice",
+      "dust_name": "Lecture-Voix",
+      "instructions": "voice/instructions.md",
+      "app_name": "Lecture-Voix-App",
+      "app_contract": "voice/app-contract.md"
+    },
+    {
+      "id": "coordinator",
+      "dust_name": "Lecture-Coordinateur",
+      "instructions": "coordinator/instructions.md",
+      "app_name": "Lecture-Coordinateur-App",
+      "app_contract": "coordinator/app-contract.md"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lecture · Accompagnant</title>
+<style>body{font:17px/1.6 system-ui,sans-serif;background:#f6f4ed;color:#223e36;max-width:860px;margin:40px auto;padding:0 24px}h1{font:40px Georgia,serif}section{background:#fffdf6;padding:24px;border:1px solid #d5ddcc;border-radius:18px;margin:24px 0}button{font:inherit;background:#285741;color:white;border:0;border-radius:12px;padding:12px 18px;margin:6px;cursor:pointer}button:disabled{opacity:.4;cursor:default}button:focus-visible{outline:3px solid #b76d2a;outline-offset:3px}.target{font-size:48px;overflow-wrap:anywhere}.muted{color:#506958}pre{white-space:pre-wrap;font:14px/1.5 ui-monospace,monospace}a{color:#285741}</style>
+<h1>Un regard, à ses côtés.</h1>
+<p>Observez la personne qui lit. Confirmez uniquement ce que vous avez réellement entendu. La transcription automatique ne vérifie pas la prononciation.</p>
+<p class="muted">Cette page est réservée à l’accompagnant. Le lien privé change à chaque démarrage. Les enregistrements et transcriptions ne sont pas conservés localement.</p>
+<p id="status" role="status">Connexion…</p><div id="sessions"></div>
+<script>
+const token=location.hash.slice(1); history.replaceState(null,'',location.pathname);
+const status=document.querySelector('#status'), list=document.querySelector('#sessions');
+let pending=false,last='',stopped=false;
+function node(tag,text,cls){const e=document.createElement(tag);e.textContent=text;if(cls)e.className=cls;return e;}
+async function refresh(){
+ if(stopped)return;
+ try{
+  const r=await fetch('/coach/state',{headers:{'X-Coach-Token':token},cache:'no-store'});
+  if(!r.ok){status.textContent='Ouvrez le lien privé affiché au démarrage de l’application.';stopped=true;return;}
+  const data=await r.json();const serialized=JSON.stringify(data);
+  if(serialized===last)return;last=serialized;list.replaceChildren();
+  status.textContent=data.sessions.length?'Séance en cours.':'Aucune séance en cours. Démarrez avec le micro sur la page Lecture.';
+  for(const s of data.sessions){
+   const section=node('section','');
+   section.append(node('p',s.card?s.card.tiles.join(' - '):'Choix et accueil','target'));
+   const phase={INDEPENDENT_ATTEMPT:'En attente d’un essai',OFFER_MODEL:'Essai autonome reçu',MODEL:'Modèle et répétition',GUIDED_PRACTICE:'Essai guidé reçu',FEEDBACK:'Retour donné'};
+   section.append(node('p',phase[s.phase]||'Conversation'));
+   section.append(node('p',s.consent?'Progrès conservés avec accord.':'Cette séance seulement.'));
+   if(s.card)section.append(node('p','Modèle prévu : '+s.card.model,'muted'));
+   for(const [result,label] of [['reussite','Lecture confirmée'],['echec','À reprendre'],['non_evaluable','Je ne peux pas évaluer']]){
+    const b=node('button',label);b.disabled=!s.can_assess||pending;
+    b.onclick=async()=>{pending=true;section.querySelectorAll('button').forEach(x=>x.disabled=true);
+     try{const response=await fetch('/coach/assess',{method:'POST',headers:{'Content-Type':'application/json','X-Coach-Token':token},body:JSON.stringify({session_id:s.id,attempt_id:s.attempt_id,result})});
+      status.textContent=response.ok?'Observation envoyée. Elle sera appliquée à cet essai.':'Cet essai a changé ou a déjà été évalué.';
+     }catch(_){status.textContent='Connexion interrompue.';}finally{pending=false;last='';}};
+    section.append(b);
+   }
+   section.append(node('p','Une réussite indépendante réduit le score d’erreur de 25 ; une difficulté confirmée l’augmente de 25. Les essais guidés restent sans score.'));
+   const detail=node('details','');detail.append(node('summary','Suivi pédagogique'));
+   detail.append(node('pre',JSON.stringify({scores:s.scores,maitrises:s.mastered,activites_parcourues:s.practice_count,controle_methode:s.method_result,appels_Dust:s.provider_calls},null,2)));section.append(detail);list.append(section);
+  }
+ }catch(_){status.textContent='Connexion interrompue. Nouvelle tentative…';}
+ finally{if(!stopped)setTimeout(refresh,1500);}
+}
+refresh();
+</script></html>

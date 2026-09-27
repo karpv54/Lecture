@@ -1,0 +1,45 @@
+# Credentials and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+service-account*.json
+
+# Learner records and generated media
+data/
+recordings/
+sessions/
+uploads/
+logs/
+*.log
+*.wav
+*.mp3
+*.ogg
+*.opus
+*.m4a
+*.webm
+
+# Local dependencies and build output
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+dist/
+build/
+coverage/
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.tmp
+*.bak

@@ -1,0 +1,333 @@
+{
+  "version": 1,
+  "review_note": "Starter material authored for this project; structural checks automated. Confirm personal names with their owner. A literacy professional should review phonetic teaching and audition TTS before facilitated use.",
+  "patterns": {
+    "a": {
+      "display": "a",
+      "model": "Écoutez : a, comme au début de ami."
+    },
+    "i": {
+      "display": "i",
+      "model": "Écoutez : i, comme au début de image."
+    },
+    "o": {
+      "display": "o",
+      "model": "Écoutez la fin de moto : o."
+    },
+    "é": {
+      "display": "é",
+      "model": "Écoutez le début de été : é."
+    },
+    "m": {
+      "display": "m",
+      "model": "Écoutez : ma. Au début, les lèvres se rejoignent."
+    },
+    "l": {
+      "display": "l",
+      "model": "Écoutez : la. La langue touche derrière les dents du haut."
+    },
+    "n": {
+      "display": "n",
+      "model": "Écoutez le début de na, comme dans navire."
+    },
+    "r": {
+      "display": "r",
+      "model": "Écoutez le début de ra, comme dans radis."
+    },
+    "t": {
+      "display": "t",
+      "model": "Écoutez le début de ta, comme dans tapis."
+    },
+    "v": {
+      "display": "v",
+      "model": "Écoutez : va. Les dents du haut touchent la lèvre du bas."
+    },
+    "ou": {
+      "display": "ou",
+      "model": "Ces deux lettres ensemble font ou, comme au début de outil."
+    }
+  },
+  "anchors": [
+    {
+      "id": "marie",
+      "word": "Marie",
+      "syllables": [
+        "Ma",
+        "rie"
+      ],
+      "patterns": [
+        "m",
+        "a",
+        "r",
+        "i"
+      ],
+      "ipa": "ma.ʁi",
+      "emoji": "",
+      "note": "Le e final ne se prononce pas.",
+      "kind": "prenom"
+    },
+    {
+      "id": "lina",
+      "word": "Lina",
+      "syllables": [
+        "Li",
+        "na"
+      ],
+      "patterns": [
+        "l",
+        "i",
+        "n",
+        "a"
+      ],
+      "ipa": "li.na",
+      "emoji": "",
+      "note": "",
+      "kind": "prenom"
+    },
+    {
+      "id": "ali",
+      "word": "Ali",
+      "syllables": [
+        "A",
+        "li"
+      ],
+      "patterns": [
+        "a",
+        "l",
+        "i"
+      ],
+      "ipa": "a.li",
+      "emoji": "",
+      "note": "",
+      "kind": "prenom"
+    },
+    {
+      "id": "remi",
+      "word": "Rémi",
+      "syllables": [
+        "Ré",
+        "mi"
+      ],
+      "patterns": [
+        "r",
+        "é",
+        "m",
+        "i"
+      ],
+      "ipa": "ʁe.mi",
+      "emoji": "",
+      "note": "",
+      "kind": "prenom"
+    },
+    {
+      "id": "moto",
+      "word": "moto",
+      "syllables": [
+        "mo",
+        "to"
+      ],
+      "patterns": [
+        "m",
+        "o",
+        "t"
+      ],
+      "ipa": "mo.to",
+      "emoji": "🏍️",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "velo",
+      "word": "vélo",
+      "syllables": [
+        "vé",
+        "lo"
+      ],
+      "patterns": [
+        "v",
+        "é",
+        "l",
+        "o"
+      ],
+      "ipa": "ve.lo",
+      "emoji": "🚲",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "ami",
+      "word": "ami",
+      "syllables": [
+        "a",
+        "mi"
+      ],
+      "patterns": [
+        "a",
+        "m",
+        "i"
+      ],
+      "ipa": "a.mi",
+      "emoji": "🤝",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "mari",
+      "word": "mari",
+      "syllables": [
+        "ma",
+        "ri"
+      ],
+      "patterns": [
+        "m",
+        "a",
+        "r",
+        "i"
+      ],
+      "ipa": "ma.ʁi",
+      "emoji": "",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "lama",
+      "word": "lama",
+      "syllables": [
+        "la",
+        "ma"
+      ],
+      "patterns": [
+        "l",
+        "a",
+        "m"
+      ],
+      "ipa": "la.ma",
+      "emoji": "🦙",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "rat",
+      "word": "rat",
+      "syllables": [
+        "rat"
+      ],
+      "patterns": [
+        "r",
+        "a"
+      ],
+      "ipa": "ʁa",
+      "emoji": "🐀",
+      "note": "Le t final ne se prononce pas.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "mot",
+      "word": "mot",
+      "syllables": [
+        "mot"
+      ],
+      "patterns": [
+        "m",
+        "o"
+      ],
+      "ipa": "mo",
+      "emoji": "",
+      "note": "Le t final ne se prononce pas.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "mou",
+      "word": "mou",
+      "syllables": [
+        "mou"
+      ],
+      "patterns": [
+        "m",
+        "ou"
+      ],
+      "ipa": "mu",
+      "emoji": "",
+      "note": "",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "roule",
+      "word": "roule",
+      "syllables": [
+        "roule"
+      ],
+      "patterns": [
+        "r",
+        "ou",
+        "l"
+      ],
+      "ipa": "ʁul",
+      "emoji": "",
+      "note": "Le e final ne se prononce pas.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "vol",
+      "word": "vol",
+      "syllables": [
+        "vol"
+      ],
+      "patterns": [
+        "v",
+        "o",
+        "l"
+      ],
+      "ipa": "vɔl",
+      "emoji": "✈️",
+      "note": "Ici, le o est plus ouvert.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "vie",
+      "word": "vie",
+      "syllables": [
+        "vie"
+      ],
+      "patterns": [
+        "v",
+        "i"
+      ],
+      "ipa": "vi",
+      "emoji": "",
+      "note": "Le e final ne se prononce pas.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "rare",
+      "word": "rare",
+      "syllables": [
+        "rare"
+      ],
+      "patterns": [
+        "r",
+        "a"
+      ],
+      "ipa": "ʁaʁ",
+      "emoji": "",
+      "note": "Le e final ne se prononce pas.",
+      "kind": "mot_familier"
+    },
+    {
+      "id": "vite",
+      "word": "vite",
+      "syllables": [
+        "vite"
+      ],
+      "patterns": [
+        "v",
+        "i",
+        "t"
+      ],
+      "ipa": "vit",
+      "emoji": "",
+      "note": "Le e final ne se prononce pas.",
+      "kind": "mot_familier"
+    }
+  ]
+}
